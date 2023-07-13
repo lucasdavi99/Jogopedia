@@ -2,6 +2,7 @@ package com.jogopedia.dslist.dto;
 
 
 import com.jogopedia.dslist.entities.Game;
+import com.jogopedia.dslist.projections.GameMinProjection;
 
 public class GameMinDTO {
     private Long id;
@@ -19,8 +20,15 @@ public class GameMinDTO {
         title = entity.getTitle();
         year = entity.getYear();
         imgUrl = entity.getImgUrl();
-        shortDescription = entity.getLongDescription();
         longDescription = entity.getShortDescription();
+    }
+
+    public GameMinDTO(GameMinProjection projection) {
+        id = projection.getId();
+        title = projection.getTitle();
+        year = projection.getYear();
+        imgUrl = projection.getImgUrl();
+        longDescription = projection.getShortDescription();
     }
 
     public Long getId() {
